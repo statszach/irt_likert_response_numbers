@@ -23,10 +23,11 @@ set.seed(1) #set seed
 random.normal = matrix(rnorm(nvars*numobs, 0, 1), nrow=nvars, ncol=numobs);
 X = U %*% random.normal
 newX = t(X)
+
 raw = as.data.frame(newX)
 orig.raw = as.data.frame(t(random.normal))
 
-cor(raw)
+cor(raw) #simulation worked!
 cor(orig.raw)
 
 
@@ -45,8 +46,7 @@ prob_11cat  <- c(.03, .06, .08, .11, .14, .16, .14, .11, .08, .06, .03)
 # sum(test)
 # test_div = test / 1.8
 
-
-
+#putting data into likert-form
 orig.likert.3cat <- raw %>% mutate(V1 = norm2likert(V1, prob = prob_3cat),
                                    V2 = norm2likert(V2, prob = prob_3cat),
                                    V3 = norm2likert(V3, prob = prob_3cat),
@@ -102,6 +102,8 @@ orig.likert.11cat <- raw %>% mutate(V1 = norm2likert(V1, prob = prob_11cat),
                                     V9 = norm2likert(V9, prob = prob_11cat),
                                     V10 = norm2likert(V10, prob = prob_11cat))
 
+#running mirt models
+
 library(mirt)
 library(psych)
 
@@ -120,6 +122,7 @@ plot(nine_cat_graded, type = 'info')
 eleven_cat_graded <- mirt(orig.likert.11cat, 1, itemtype = 'graded')
 plot(eleven_cat_graded, type = 'info')
 
+#extracing test information curves
 
 Theta <- matrix(seq(-6, 6, .01))
 test_info_data <- data.frame(three = testinfo(three_cat_graded, Theta),
@@ -128,9 +131,12 @@ test_info_data <- data.frame(three = testinfo(three_cat_graded, Theta),
                              nine  = testinfo(nine_cat_graded, Theta),
                              eleven = testinfo(eleven_cat_graded, Theta),
                              theta = Theta)
-
 test_info_data <- test_info_data %>% mutate(id = row_number())
 
+#putting data into long form for plot
+
 test_info_long <- test_info_data %>% gather(key = id, value = testinfo, 1:5)
+
+#plotting results
 
 ggplot(test_info_long, aes(x = theta, y = testinfo, color = id)) + geom_smooth()
