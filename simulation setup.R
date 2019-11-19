@@ -120,7 +120,7 @@ likert_test <- function(n, r){
   ggplot(test_info_long, aes(x = theta, y = testinfo, color = id)) + geom_line()
 }
 
-likert_test(100, .8)
+likert_test(1000, .9)
 
 
 r = .7 #set correlation
@@ -257,8 +257,12 @@ test_info_data <- test_info_data %>% mutate(id = row_number())
 
 #putting data into long form for plot
 
-test_info_long <- test_info_data %>% gather(key = id, value = testinfo, 1:5)
+test_info_long <- test_info_data %>% gather(key = id, value = testinfo, 1:5) %>% 
+                                     mutate(testinfo = recode_factor(testinfo, .ordered = TRUE))
+
+#need to specify testinfo as ordered factor to plot comes out sequentially
 
 #plotting results
 
 ggplot(test_info_long, aes(x = theta, y = testinfo, color = id)) + geom_line()
+
