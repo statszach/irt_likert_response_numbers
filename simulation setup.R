@@ -275,8 +275,8 @@ plot(y = test.info.11.data$mirt, x = test.info.11.data$V11)
 plot(Theta, info.11.10, type = 'l', main = 'Item information')
 
 ICCplot = ggplot()+
-  geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.1), color = "blue")+
-  geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.2), color = "black")+
+  geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.1), color = "firebrick")+
+  geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.2), color = "sandybrown")+
   geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.3), color = "red")+
   geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.4), color = "violet")+
   geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.5), color = "orange")+
@@ -285,6 +285,7 @@ ICCplot = ggplot()+
   geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.8), color = "darkorchid")+
   geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.9), color = "orchid")+
   geom_line(data = test.info.11.data, aes(x = Theta, y = info.11.10), color = "green")+
+  geom_line(data = test.info.11.data, aes(x = Theta, y = test.info.11.sum), color = "black")+
   xlab('Theta') + ylab('Item Information')
 
 print(ICCplot)
