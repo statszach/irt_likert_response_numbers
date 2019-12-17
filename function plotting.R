@@ -27,7 +27,11 @@ gradedFun <- function(x, D, a, bu, bu1){
 z1 <- -D*a*(x - bu1)
 z <- -D*a*(x - bu)
 
-(exp(z1) - exp(z)) / (1 + exp(z))*(1 + exp(z1)) 
+
+Pu = (exp(z1) - exp(z)) / (1 + exp(z))*(1 + exp(z1)) 
+
+Pu
+
 
 }
 
