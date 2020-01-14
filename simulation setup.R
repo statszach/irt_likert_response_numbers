@@ -122,6 +122,101 @@ likert_test <- function(n, r){
   ggplot(test_info_long, aes(x = theta, y = testinfo, fill = `Likert Category`)) + geom_line()
 }
 
+
+r9 <- likert_test(100000, .90)
+r8 <- likert_test(100000, .80)
+r7 <- likert_test(100000, .70)
+r6 <- likert_test(100000, .60)
+r5 <- likert_test(100000, .50)
+r4 <- likert_test(100000, .40)
+
+rxx9 = 10
+rxx95 = 20
+
+r9data <- r9$data
+r9plot <- ggplot(r9data, aes(x = theta, y = testinfo, color = `Likert Category`)) + 
+  geom_line(show.legend = FALSE) +
+  scale_color_manual(values = c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f"))+
+  labs(title = "Test Information Plot", subtitle = "r = 0.90", y = "Test Information",
+       caption = "When Test Information = 10, Reliability = 0.90, When Test Information = 20, Reliability = 0.95") +
+  xlab(expression(theta)) +
+  geom_hline(yintercept = rxx9)+ 
+  geom_hline(yintercept = rxx95)
+
+r9plot
+
+r8data <- r8$data
+r8plot <- ggplot(r8data, aes(x = theta, y = testinfo, color = `Likert Category`)) + 
+  geom_line(show.legend = FALSE) +
+  scale_color_manual(values = c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f"))+
+  labs(title = "Test Information Plot", subtitle = "r = 0.80", y = "Test Information",
+       caption = "When Test Information = 10, Reliability = 0.90, When Test Information = 20, Reliability = 0.95") +
+  xlab(expression(theta)) +
+  geom_hline(yintercept = rxx9)+ 
+  geom_hline(yintercept = rxx95)
+
+r8plot
+
+r7data <- r7$data
+r7plot <- ggplot(r7data, aes(x = theta, y = testinfo, color = `Likert Category`)) + 
+  geom_line(show.legend = FALSE) +
+  scale_color_manual(values = c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f"))+
+  labs(title = "Test Information Plot", subtitle = "r = 0.70", y = "Test Information",
+       caption = "When Test Information = 10, Reliability = 0.90, When Test Information = 20, Reliability = 0.95") +
+  xlab(expression(theta)) +
+  geom_hline(yintercept = rxx9)+ 
+  geom_hline(yintercept = rxx95)
+
+r7plot
+
+r6data <- r6$data
+r6plot <- ggplot(r7data, aes(x = theta, y = testinfo, color = `Likert Category`)) + 
+  geom_line(show.legend = FALSE) +
+  scale_color_manual(values = c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f"))+
+  labs(title = "Test Information Plot", subtitle = "r = 0.60", y = "Test Information",
+       caption = "When Test Information = 10, Reliability = 0.90, When Test Information = 20, Reliability = 0.95") +
+  xlab(expression(theta)) +
+  geom_hline(yintercept = rxx9)+ 
+  geom_hline(yintercept = rxx95)
+
+r6plot
+
+r5data <- r5$data
+r5plot <- ggplot(r7data, aes(x = theta, y = testinfo, color = `Likert Category`)) + 
+  geom_line(show.legend = FALSE) +
+  scale_color_manual(values = c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f"))+
+  labs(title = "Test Information Plot", subtitle = "r = 0.50", y = "Test Information",
+       caption = "When Test Information = 10, Reliability = 0.90, When Test Information = 20, Reliability = 0.95") +
+  xlab(expression(theta)) +
+  geom_hline(yintercept = rxx9)+ 
+  geom_hline(yintercept = rxx95)
+
+r5plot
+
+r4data <- r4$data
+r4plot <- ggplot(r7data, aes(x = theta, y = testinfo, color = `Likert Category`)) + 
+  geom_line(show.legend = FALSE) +
+  scale_color_manual(values = c("#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f"))+
+  labs(title = "Test Information Plot", subtitle = "r = 0.40", y = "Test Information",
+       caption = "When Test Information = 10, Reliability = 0.90, When Test Information = 20, Reliability = 0.95") +
+  xlab(expression(theta)) +
+  geom_hline(yintercept = rxx9)+ 
+  geom_hline(yintercept = rxx95)
+
+r4plot
+
+
+
+
+
+
+
+
+
+
+
+
+
 n500r6 <- likert_test(500, .6)
 
 n5000r8 <- likert_test(5000, .8)
@@ -160,6 +255,28 @@ ggplot(testdata3, aes(x = theta, y = testinfo, color = `Likert Category`)) +
   xlab(expression(theta)) +
   geom_hline(yintercept = rxx9)+ 
   geom_hline(yintercept = rxx95)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
